@@ -21,7 +21,7 @@ namespace NewBIGprojectASOUME.Controllers
         public ActionResult Create()
         {
             var GigFormViewModel = new BandFormViewModel()
-            {
+            {   Artists = _db.Artists.ToList(),
                 Genres = _db.Genres.ToList()
             };
             return View(GigFormViewModel);
