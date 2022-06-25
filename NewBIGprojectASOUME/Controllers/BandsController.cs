@@ -33,6 +33,7 @@ namespace NewBIGprojectASOUME.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(BandFormViewModel bandFormViewModel)
         {
             if (!ModelState.IsValid)
