@@ -40,7 +40,6 @@ namespace NewBIGprojectASOUME.Repository
             }
             var Band = _Context.Bands
                 .Include(b => b.Artists)
-                .Include(a => a.User)
                 .SingleOrDefault(c => c.Id == id);
 
             if (Band == null)

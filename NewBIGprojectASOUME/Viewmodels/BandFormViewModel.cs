@@ -11,11 +11,14 @@ namespace NewBIGprojectASOUME
         public byte Genre { get; set; }
 
         public IEnumerable<Genre> Genres { get; set; }
-        public Artist Artist { get; set; }
+        public byte Artist { get; set; }
     
         public IEnumerable<Artist>  Artists { get; set; }
 
         public string Name { get; set; }
+
+        public byte Band { get; set; }
+        public IEnumerable<Band> Bands { get; set; }
 
     }
 }
