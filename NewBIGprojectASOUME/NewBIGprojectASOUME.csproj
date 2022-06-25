@@ -190,8 +190,24 @@
     <Compile Include="Migrations\202206251317238_Initial.Designer.cs">
       <DependentUpon>202206251317238_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206251421151_AddedFirstClasses.cs" />
+    <Compile Include="Migrations\202206251421151_AddedFirstClasses.Designer.cs">
+      <DependentUpon>202206251421151_AddedFirstClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206251450209_Sadface.cs" />
+    <Compile Include="Migrations\202206251450209_Sadface.Designer.cs">
+      <DependentUpon>202206251450209_Sadface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206251503279_OnModelCreatingIdentityModelChange.cs" />
+    <Compile Include="Migrations\202206251503279_OnModelCreatingIdentityModelChange.Designer.cs">
+      <DependentUpon>202206251503279_OnModelCreatingIdentityModelChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\ArtistsBandsConnection.cs" />
+    <Compile Include="Models\Band.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -273,6 +289,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202206251317238_Initial.resx">
       <DependentUpon>202206251317238_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206251421151_AddedFirstClasses.resx">
+      <DependentUpon>202206251421151_AddedFirstClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206251450209_Sadface.resx">
+      <DependentUpon>202206251450209_Sadface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206251503279_OnModelCreatingIdentityModelChange.resx">
+      <DependentUpon>202206251503279_OnModelCreatingIdentityModelChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

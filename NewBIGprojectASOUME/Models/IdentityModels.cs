@@ -19,7 +19,15 @@ namespace NewBIGprojectASOUME.Models
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
+    {   
+
+        public DbSet<Artist> Artists { get; set; }
+
+        public DbSet<Band> Bands { get; set; }
+
+        public DbSet<Genre> Genres { get; set; }
+
+        public DbSet<ArtistsBandsConnection> ArtistsBandsConnections { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -28,6 +36,16 @@ namespace NewBIGprojectASOUME.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ArtistsBandsConnection>()
+                .HasRequired(a => a.Band)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
