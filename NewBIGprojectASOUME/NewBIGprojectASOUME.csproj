@@ -180,6 +180,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Migrations\202206252115460_AddForeignKeysPropertiesToGig.cs" />
+    <Compile Include="Migrations\202206252115460_AddForeignKeysPropertiesToGig.Designer.cs">
+      <DependentUpon>202206252115460_AddForeignKeysPropertiesToGig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206252216309_WTHISGOINGON.cs" />
+    <Compile Include="Migrations\202206252216309_WTHISGOINGON.Designer.cs">
+      <DependentUpon>202206252216309_WTHISGOINGON.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\BandsRepository.cs" />
     <Compile Include="Viewmodels\BandFormViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -302,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206251503279_OnModelCreatingIdentityModelChange.resx">
       <DependentUpon>202206251503279_OnModelCreatingIdentityModelChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206252115460_AddForeignKeysPropertiesToGig.resx">
+      <DependentUpon>202206252115460_AddForeignKeysPropertiesToGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206252216309_WTHISGOINGON.resx">
+      <DependentUpon>202206252216309_WTHISGOINGON.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

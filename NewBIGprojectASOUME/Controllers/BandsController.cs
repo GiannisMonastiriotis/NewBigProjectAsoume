@@ -35,25 +35,28 @@ namespace NewBIGprojectASOUME.Controllers
         [HttpPost]
         public ActionResult Create(BandFormViewModel bandFormViewModel)
         {
-            var userId = User.Identity.GetUserId();
-            var user = _db.Users.Single(u => u.Id == userId);
+            if (!ModelState.IsValid)
 
-            var genre = _db.Genres.Single(g => g.Id == bandFormViewModel.Genre);
+            {
+
+                bandFormViewModel.Genres = _db.Genres.ToList();
+                bandFormViewModel.Artists = _db.Artists.ToList();
+                bandFormViewModel.Bands = _db.Bands.ToList();
+                return View("Create", bandFormViewModel);
+            }
+              
 
             var artist = _db.Artists.Single(g => g.Id == bandFormViewModel.Artist);
 
             var band = new Band
-            {
-
-                User = user,
-                Genre = genre,
+            {   
+                DateCreated = bandFormViewModel.DateTimeCreated,
+                UserID = User.Identity.GetUserId(),
+                GenreId = bandFormViewModel.Genre,
                 Name = bandFormViewModel.Name
             };
 
-
             _db.Bands.Add(band);
-
-
 
             var bandArtist = new ArtistsBandsConnection()
             {
