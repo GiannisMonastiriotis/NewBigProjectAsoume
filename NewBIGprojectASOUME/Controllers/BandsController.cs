@@ -51,6 +51,7 @@ namespace NewBIGprojectASOUME.Controllers
 
             var band = new Band
             {   
+                //Id = bandFormViewModel.Band,
                 DateCreated = bandFormViewModel.DateTimeCreated,
                 UserID = User.Identity.GetUserId(),
                 GenreId = bandFormViewModel.Genre,
@@ -58,9 +59,11 @@ namespace NewBIGprojectASOUME.Controllers
             };
 
             _db.Bands.Add(band);
+            _db.SaveChanges();
 
             var bandArtist = new ArtistsBandsConnection()
             {
+                
                 ArtistId = artist.Id,
                 BandId = band.Id
             };

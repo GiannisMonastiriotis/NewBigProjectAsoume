@@ -1,31 +1,58 @@
 ﻿@model IEnumerable<NewBIGprojectASOUME.Models.Band>
 @{
     ViewBag.Title = "Home Page";
-   
+    var count = Model.Count();
+
 }
 
 
 @*<ol>
-    
-    <li> Provide Date Time, i.e: 'exmpl'</li>
-    <li>
-        @Html.TextBox((ViewBag.DateTimeProvided).ToString(), new { @class = "form-control" })
 
-    </li>
-</ol>*@
-<ul>
-    @foreach (var band in Model)
-    {
+        <li> Provide Date Time, i.e: 'exmpl'</li>
+        <li>
+            @Html.TextBox((ViewBag.DateTimeProvided).ToString(), new { @class = "form-control" })
+
+        </li>
+    </ol>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h1 class="badge">Band</h1>
+            </th>
+            <em class="label-info form-control badge">
+               Band Results : @count
+            </em>
+        </tr>
+
+        <tr>
+            <th scope="col" class="glyphicon-record table-responsive"> Id</th>
+            <th scope="col" class="table-bordered"> Created At </th>
+            <th scope="col"class="table-responsive" > Band </th>
+            <th scope="col" class="table-responsive"> U.Name </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var band in Model)
+        {
+            
 
 
-        <li> <em>Band</em> </li>
-        <li> Created At: - Band</li>
-        <li> @band.DateCreated.ToString("dd-MM-yyyy-tt") 
-    - @band.Name  
-   
-        @*@band.Artists.Where(ab=> ab.Id== band.Id).Select( g=> new {g.FullName})*@</li>
+        <tr>
 
-      
-    }
 
-</ul>
+            @{
+               
+                <th scope="row"> @band.Id</th>
+            }
+            <td> @band.DateCreated.ToString("dd-MM-yyyy-tt")</td>
+            <td> @band.Name</td>
+            <td> @band.User.UserName</td>
+        </tr>
+     
+ 
+        }
+    </tbody>
+</table>
+        

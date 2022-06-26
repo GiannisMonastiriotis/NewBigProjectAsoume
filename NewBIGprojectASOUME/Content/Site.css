@@ -46,9 +46,10 @@ h6,
 
 .form-control{
     font-size:17px;
-    padding:20px 15px;
+    padding:20px 30px;
     -ms-border-radius:9px;
     border-radius:9px;
+    height:100%;
 }
 
 .btn{

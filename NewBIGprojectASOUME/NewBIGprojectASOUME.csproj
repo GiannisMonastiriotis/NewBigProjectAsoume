@@ -188,9 +188,9 @@
     <Compile Include="Migrations\202206252216309_WTHISGOINGON.Designer.cs">
       <DependentUpon>202206252216309_WTHISGOINGON.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202206261404548_WTG.cs" />
-    <Compile Include="Migrations\202206261404548_WTG.Designer.cs">
-      <DependentUpon>202206261404548_WTG.cs</DependentUpon>
+    <Compile Include="Migrations\202206261934077_AddNameToAppUser.cs" />
+    <Compile Include="Migrations\202206261934077_AddNameToAppUser.Designer.cs">
+      <DependentUpon>202206261934077_AddNameToAppUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\BandsRepository.cs" />
     <Compile Include="Viewmodels\BandFormViewModel.cs" />
@@ -323,8 +323,8 @@
     <EmbeddedResource Include="Migrations\202206252216309_WTHISGOINGON.resx">
       <DependentUpon>202206252216309_WTHISGOINGON.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206261404548_WTG.resx">
-      <DependentUpon>202206261404548_WTG.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202206261934077_AddNameToAppUser.resx">
+      <DependentUpon>202206261934077_AddNameToAppUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

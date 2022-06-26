@@ -20,7 +20,7 @@ namespace NewBIGprojectASOUME.Controllers
         {
            // var band = new Band();
            // ViewBag.DateProvided = band.DateTimeProvided;
-            var newBandsAdded = _bandRepos.GetLatestResultsByTenMinutes();
+            var newBandsAdded = _bandRepos.GetLatestResultsByOneDay();
             return View(newBandsAdded);
         }
        

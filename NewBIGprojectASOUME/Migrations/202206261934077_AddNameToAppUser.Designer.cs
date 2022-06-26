@@ -7,13 +7,13 @@ namespace NewBIGprojectASOUME.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class WTG : IMigrationMetadata
+    public sealed partial class AddNameToAppUser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(WTG));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddNameToAppUser));
         
         string IMigrationMetadata.Id
         {
-            get { return "202206261404548_WTG"; }
+            get { return "202206261934077_AddNameToAppUser"; }
         }
         
         string IMigrationMetadata.Source

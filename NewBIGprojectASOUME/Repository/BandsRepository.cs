@@ -46,7 +46,7 @@ namespace NewBIGprojectASOUME.Repository
             _Context.SaveChanges();
         }
         
-        public IEnumerable<Band> GetLatestResultsByTenMinutes()
+        public IEnumerable<Band> GetLatestResultsByOneDay()
         {
             var Date = DateTime.Now.AddDays(-1);
 
@@ -55,7 +55,7 @@ namespace NewBIGprojectASOUME.Repository
             //select article;
 
             var latestBands = _Context.Bands
-                //.Include(a=>a.Artists)
+                .Include(a=>a.User)
                 .Where(x => x.DateCreated > Date)
                 .ToList();
 

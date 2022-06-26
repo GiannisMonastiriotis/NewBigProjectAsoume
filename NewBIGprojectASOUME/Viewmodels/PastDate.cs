@@ -19,7 +19,7 @@ namespace NewBIGprojectASOUME.Viewmodels
                 DateTimeStyles.None,
                 out dateTime);
 
-            return (isValid && dateTime < DateTime.Now);
+            return (isValid && dateTime > DateTime.Now);
 
         }
     }

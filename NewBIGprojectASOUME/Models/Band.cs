@@ -31,11 +31,11 @@ namespace NewBIGprojectASOUME.Models
         //public Artist Artist { get; set; }
 
         public virtual IEnumerable<Artist> Artists { get; set; }
-        [Required]
-        public virtual IEnumerable<ArtistsBandsConnection> ArtistsBands { get; set; }
+    
+      //  public virtual IEnumerable<ArtistsBandsConnection> ArtistsBands { get; set; }
        
-        [NotMapped]
-        [PastDate]
-        public DateTime DateTimeProvided { get; set; }
+       // [NotMapped]
+       // [PastDate]
+        //public DateTime DateTimeProvided { get; set; }
     }
 }
