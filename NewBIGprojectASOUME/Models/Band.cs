@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewBIGprojectASOUME.Viewmodels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -29,6 +30,12 @@ namespace NewBIGprojectASOUME.Models
         //[NotMapped]
         //public Artist Artist { get; set; }
 
-        public IEnumerable<Artist> Artists { get; set; }
+        public virtual IEnumerable<Artist> Artists { get; set; }
+        [Required]
+        public virtual IEnumerable<ArtistsBandsConnection> ArtistsBands { get; set; }
+       
+        [NotMapped]
+        [PastDate]
+        public DateTime DateTimeProvided { get; set; }
     }
 }

@@ -188,6 +188,10 @@
     <Compile Include="Migrations\202206252216309_WTHISGOINGON.Designer.cs">
       <DependentUpon>202206252216309_WTHISGOINGON.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206261404548_WTG.cs" />
+    <Compile Include="Migrations\202206261404548_WTG.Designer.cs">
+      <DependentUpon>202206261404548_WTG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\BandsRepository.cs" />
     <Compile Include="Viewmodels\BandFormViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -223,6 +227,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Viewmodels\PastDate.cs" />
     <Compile Include="Viewmodels\TopTenBandsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206252216309_WTHISGOINGON.resx">
       <DependentUpon>202206252216309_WTHISGOINGON.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206261404548_WTG.resx">
+      <DependentUpon>202206261404548_WTG.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

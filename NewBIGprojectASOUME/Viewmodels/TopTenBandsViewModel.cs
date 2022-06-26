@@ -16,14 +16,16 @@ namespace NewBIGprojectASOUME.Viewmodels
         public int Band { get; set; }
         public IEnumerable<Band> Bands { get; set; }
 
+        public int NumberOfArtists { get; set; }
+
         //public ICollection<Band> TopTenBands 
         //{  
         //    get
         //    {
-        //        List<Band> Tenbands;
+        //        List<Band> Tenbands = new List<Band>();
         //        foreach (var band in Bands)
         //        {
-        //            if(band.Artists.Count() > 100)
+        //            if(band.Artists.Count() > NumberOfArtists)
         //            {
                         
         //            }

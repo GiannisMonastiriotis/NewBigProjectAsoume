@@ -11,12 +11,12 @@ namespace NewBIGprojectASOUME.Controllers
 {
     public class BandsController : Controller
     {
-        BandsRepository _BandRepos;
-        ApplicationDbContext _db;
+        
+        private readonly ApplicationDbContext _db;
         
         public BandsController()
         {
-            _BandRepos = new BandsRepository();
+            
             _db = new ApplicationDbContext();
         }
         // GET: Bands

@@ -18,7 +18,8 @@ namespace NewBIGprojectASOUME.Models
 
         public IEnumerable<Band> Bands { get; set; }
 
-
+        [NotMapped]
+         public DateTime DateCreated { get; set; }
 
         [NotMapped]
         public string FullName {

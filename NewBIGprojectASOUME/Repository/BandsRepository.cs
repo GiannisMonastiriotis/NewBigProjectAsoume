@@ -14,9 +14,11 @@ namespace NewBIGprojectASOUME.Repository
     {
         private readonly ApplicationDbContext _Context;
 
+
         public BandsRepository()
         {
             _Context = new ApplicationDbContext();
+ 
         }
 
         public IEnumerable<Band> GetAll()
@@ -27,11 +29,39 @@ namespace NewBIGprojectASOUME.Repository
                 .Include(a => a.User);
         }
 
+
+        public IEnumerable<ArtistsBandsConnection> GetAllArtistsBandsConnection()
+        {
+            return _Context
+                .ArtistsBandsConnections
+                .Include(b => b.Artist)
+                .Include(a => a.Band)
+                .ToList();
+        }
+
+
+
         public void Save()
         {
             _Context.SaveChanges();
         }
         
+        public IEnumerable<Band> GetLatestResultsByTenMinutes()
+        {
+            var Date = DateTime.Now.AddDays(-1);
+
+            //from article in db.Articles
+            //where article.Categories.Any(c => c.Category_ID == cat_id)
+            //select article;
+
+            var latestBands = _Context.Bands
+                //.Include(a=>a.Artists)
+                .Where(x => x.DateCreated > Date)
+                .ToList();
+
+            return (IEnumerable<Band>)latestBands;
+            
+        }
         public Band GetAllById(int? id)
         {
             if(id == null)
@@ -39,7 +69,7 @@ namespace NewBIGprojectASOUME.Repository
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
             var Band = _Context.Bands
-                .Include(b => b.Artists)
+                //.Include(b => b.Artists)
                 .SingleOrDefault(c => c.Id == id);
 
             if (Band == null)
