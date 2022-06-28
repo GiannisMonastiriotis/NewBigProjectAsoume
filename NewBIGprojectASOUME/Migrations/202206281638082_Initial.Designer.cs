@@ -6,14 +6,14 @@ namespace NewBIGprojectASOUME.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class WTHISGOINGON : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(WTHISGOINGON));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202206252216309_WTHISGOINGON"; }
+            get { return "202206281638082_Initial"; }
         }
         
         string IMigrationMetadata.Source

@@ -16,20 +16,23 @@ namespace NewBIGprojectASOUME.Models
 
         [Required]
         public string UserID { get; set; }
+
         [Required]
         [StringLength(255)]
         [RegularExpression(@"^[^,:*?""<>\|]*$")]
-
         public string Name { get; set; }
 
-        public Genre Genre { get; set; }
-        
-        public DateTime DateCreated { get; set; }
-        [Required]
-        public byte GenreId { get; set; }
-        //[NotMapped]
-        //public Artist Artist { get; set; }
 
+
+        public DateTime DateCreated { get; set; }
+
+       
+        public Genre Genre { get; set; }
+
+        [Required]
+        public int GenreId { get; set; }
+
+        //[NotMapped]
         public virtual IEnumerable<Artist> Artists { get; set; }
     
       //  public virtual IEnumerable<ArtistsBandsConnection> ArtistsBands { get; set; }

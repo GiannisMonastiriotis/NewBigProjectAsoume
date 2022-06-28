@@ -31,32 +31,14 @@ h3,
 h4,
 h5,
 h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-    font-family: 'Lato', "Helvetica Neue",Arial, Helvetica, sans-serif,Arial, sans-serif
-}
-
-.form-group{
-    margin-bottom:20px;
-}
-
-.form-control{
-    font-size:17px;
-    padding:20px 30px;
-    -ms-border-radius:9px;
-    border-radius:9px;
-    height:100%;
-}
-
-.btn{
-    font-size:17px;
-    padding:7px 20px;
-    -ms-border-radius:9px;
-    border-radius: 9px;
+.h1
+.h2
+.h3
+.h4
+.h5
+.h6{
+    font-family: 'Lato',"Helvetica Neue",Arial, Helvetica, sans-serif
+ 
 }
 
 .form-control:focus{
@@ -70,7 +52,8 @@ h6,
     border-color: rgba(205,40,39,0.55);
 }
 
-.dropdown-menu{
+1.dropdown-menu{
+
     box-shadow:none;
     -webkit-box-shadow:none;
 }
@@ -84,3 +67,53 @@ span.field-validation-error{
     color:red;
     font-weight:bold;
 }
+
+/*#bands{
+    list-style: none;
+}
+
+
+#bands > table{
+    position: relative;
+    margin-bottom:30px;
+}
+
+#bands > table .details{
+    position:absolute;
+    top:0;
+    left:70px;
+}*/
+
+.table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+    .table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+
+.table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+/*.date
+
+.user
+
+.band*/

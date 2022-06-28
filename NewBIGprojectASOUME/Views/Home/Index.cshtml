@@ -14,45 +14,102 @@
 
         </li>
     </ol>*@
-<table class="table">
+<em class="label-info col-lg-12 badge alert-info ">
+    Band Results : @count
+</em>
+<h1 class="badge alert-success">Band</h1>
+<table class="table" id="bands">
     <thead>
         <tr>
-            <th>
-                <h1 class="badge">Band</h1>
-            </th>
-            <em class="label-info form-control badge">
-               Band Results : @count
-            </em>
         </tr>
 
         <tr>
-            <th scope="col" class="glyphicon-record table-responsive"> Id</th>
-            <th scope="col" class="table-bordered"> Created At </th>
-            <th scope="col"class="table-responsive" > Band </th>
-            <th scope="col" class="table-responsive"> U.Name </th>
+            <th scope="col" class="glyphicon-record table-responsive alert-info"> Id</th>
+            <th scope="col" class="table-bordered alert-info"> Created At </th>
+            <th scope="col" class="table-bordered alert-info"> Band </th>
+            <th scope="col" class="table-bordered alert-info"> Genre </th>
+            <th scope="col" class="table-bordered alert-info"> U.Name </th>
         </tr>
     </thead>
     <tbody>
-
+       
         @foreach (var band in Model)
         {
-            
+
 
 
         <tr>
 
 
             @{
-               
-                <th scope="row"> @band.Id</th>
+
+                <th scope="row" class="fan"> @band.Id</th>
             }
-            <td> @band.DateCreated.ToString("dd-MM-yyyy-tt")</td>
-            <td> @band.Name</td>
-            <td> @band.User.UserName</td>
+
+            <td class="fan">
+
+                @band.DateCreated.ToString("dd-MM-yyyy-tt")
+            </td>
+
+            <td class="fan">
+
+                @band.Name
+            </td>
+
+            <td class="fan">
+                @band.Genre.Name
+            </td>
+
+
+            <td class="fan">
+
+                @band.User.UserName
+                <button data-band-id="@band.Id" class="btn btn-default btn-sm pull-right js-toggle-ArtistsBandsConnection">Like</button>
+            </td>
+
+
+
+
+
+
         </tr>
-     
- 
+
         }
+    <tr>
+
+        <td class="fan">
+
+       
+        </td>
+
+    </tr>
+
     </tbody>
+
 </table>
-        
+
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+
+      
+        $(document).ready(function () {
+            $(".js-toggle-ArtistsBandsConnection").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/Likes", { BandId: button.attr("data-band-id") })
+                    .done(function () {
+                        button
+                            .removeClass("btn-default")
+                            .addClass("btn-info")
+                            .text("You like this")
+                    })
+                    .fail(function () {
+                        alert("Something Failed")
+                    });
+
+            });
+
+        });
+    </script>
+}

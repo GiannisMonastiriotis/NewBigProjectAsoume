@@ -11,16 +11,25 @@ namespace NewBIGprojectASOUME.Controllers
     public class HomeController : Controller
     {
         public readonly BandsRepository _bandRepos;
-
+        public readonly BandFormViewModel _viewModel;
+        public readonly ApplicationDbContext _Context = new ApplicationDbContext();
         public HomeController()
         {
             _bandRepos = new BandsRepository();
+            _viewModel = new BandFormViewModel();
         }
         public ActionResult Index()
         {
-           // var band = new Band();
-           // ViewBag.DateProvided = band.DateTimeProvided;
+       
             var newBandsAdded = _bandRepos.GetLatestResultsByOneDay();
+
+            //string genre;
+
+            //if (TempData.ContainsKey("genre"))
+            //    genre = TempData["genre"] as string;
+
+            //TempData.Keep("genre");
+    
             return View(newBandsAdded);
         }
        

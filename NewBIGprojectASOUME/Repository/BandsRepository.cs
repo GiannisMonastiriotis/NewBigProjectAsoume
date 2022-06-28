@@ -10,7 +10,7 @@ using System.Web.Http.ModelBinding;
 
 namespace NewBIGprojectASOUME.Repository
 {
-    public class BandsRepository: IDisposable
+    public class BandsRepository : IDisposable
     {
         private readonly ApplicationDbContext _Context;
 
@@ -18,7 +18,7 @@ namespace NewBIGprojectASOUME.Repository
         public BandsRepository()
         {
             _Context = new ApplicationDbContext();
- 
+
         }
 
         public IEnumerable<Band> GetAll()
@@ -26,9 +26,15 @@ namespace NewBIGprojectASOUME.Repository
             return _Context
                 .Bands
                 .Include(b => b.Artists)
-                .Include(a => a.User);
+                .Include(b => b.User)
+                .Include(b=> b.Genre);
         }
 
+        public IEnumerable<Genre> GetGenres()
+        {
+            return _Context
+              .Genres.ToList();
+        }
 
         public IEnumerable<ArtistsBandsConnection> GetAllArtistsBandsConnection()
         {
@@ -48,17 +54,17 @@ namespace NewBIGprojectASOUME.Repository
         
         public IEnumerable<Band> GetLatestResultsByOneDay()
         {
+          //  var genre = GetGenres();
             var Date = DateTime.Now.AddDays(-1);
-
-            //from article in db.Articles
-            //where article.Categories.Any(c => c.Category_ID == cat_id)
-            //select article;
+          
 
             var latestBands = _Context.Bands
-                .Include(a=>a.User)
-                .Where(x => x.DateCreated > Date)
+                .Include(a => a.Genre)
+                .Include(a => a.User)
+                .Where(a => a.DateCreated > Date)
                 .ToList();
-
+          
+            
             return (IEnumerable<Band>)latestBands;
             
         }

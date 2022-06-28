@@ -48,19 +48,24 @@ namespace NewBIGprojectASOUME.Controllers
               
 
             var artist = _db.Artists.Single(g => g.Id == bandFormViewModel.Artist);
+            var genre= _db.Genres.Single(g => g.Id == bandFormViewModel.Genre);
+
+            TempData["genre"] = genre.Name;
 
             var band = new Band
             {   
-                //Id = bandFormViewModel.Band,
+
+                Genre = genre,
                 DateCreated = bandFormViewModel.DateTimeCreated,
-                UserID = User.Identity.GetUserId(),
-                GenreId = bandFormViewModel.Genre,
+                UserID = User.Identity.GetUserId(),   
                 Name = bandFormViewModel.Name
             };
 
+           
             _db.Bands.Add(band);
             _db.SaveChanges();
 
+           
             var bandArtist = new ArtistsBandsConnection()
             {
                 

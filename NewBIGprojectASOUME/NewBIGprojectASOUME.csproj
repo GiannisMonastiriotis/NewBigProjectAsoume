@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -124,12 +130,6 @@
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -180,18 +180,24 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Migrations\202206252115460_AddForeignKeysPropertiesToGig.cs" />
-    <Compile Include="Migrations\202206252115460_AddForeignKeysPropertiesToGig.Designer.cs">
-      <DependentUpon>202206252115460_AddForeignKeysPropertiesToGig.cs</DependentUpon>
+    <Compile Include="Controllers\Api\LikesController.cs" />
+    <Compile Include="Controllers\GenresController.cs" />
+    <Compile Include="Dtos\LikeDto.cs" />
+    <Compile Include="Migrations\202206281638082_Initial.cs" />
+    <Compile Include="Migrations\202206281638082_Initial.Designer.cs">
+      <DependentUpon>202206281638082_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202206252216309_WTHISGOINGON.cs" />
-    <Compile Include="Migrations\202206252216309_WTHISGOINGON.Designer.cs">
-      <DependentUpon>202206252216309_WTHISGOINGON.cs</DependentUpon>
+    <Compile Include="Migrations\202206281639056_SeedFeed.cs" />
+    <Compile Include="Migrations\202206281639056_SeedFeed.Designer.cs">
+      <DependentUpon>202206281639056_SeedFeed.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202206261934077_AddNameToAppUser.cs" />
-    <Compile Include="Migrations\202206261934077_AddNameToAppUser.Designer.cs">
-      <DependentUpon>202206261934077_AddNameToAppUser.cs</DependentUpon>
+    <Compile Include="Migrations\202206282104545_AddLiking.cs" />
+    <Compile Include="Migrations\202206282104545_AddLiking.Designer.cs">
+      <DependentUpon>202206282104545_AddLiking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Like.cs" />
+    <Compile Include="Models\Liking.cs" />
     <Compile Include="Repository\BandsRepository.cs" />
     <Compile Include="Viewmodels\BandFormViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -201,23 +207,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202206251317238_Initial.cs" />
-    <Compile Include="Migrations\202206251317238_Initial.Designer.cs">
-      <DependentUpon>202206251317238_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206251421151_AddedFirstClasses.cs" />
-    <Compile Include="Migrations\202206251421151_AddedFirstClasses.Designer.cs">
-      <DependentUpon>202206251421151_AddedFirstClasses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206251450209_Sadface.cs" />
-    <Compile Include="Migrations\202206251450209_Sadface.Designer.cs">
-      <DependentUpon>202206251450209_Sadface.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206251503279_OnModelCreatingIdentityModelChange.cs" />
-    <Compile Include="Migrations\202206251503279_OnModelCreatingIdentityModelChange.Designer.cs">
-      <DependentUpon>202206251503279_OnModelCreatingIdentityModelChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\ArtistsBandsConnection.cs" />
@@ -287,6 +276,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Bands\Create.cshtml" />
+    <Content Include="Views\Genres\Create.cshtml" />
+    <Content Include="Views\Genres\Delete.cshtml" />
+    <Content Include="Views\Genres\Details.cshtml" />
+    <Content Include="Views\Genres\Edit.cshtml" />
+    <Content Include="Views\Genres\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -305,26 +299,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202206251317238_Initial.resx">
-      <DependentUpon>202206251317238_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202206281638082_Initial.resx">
+      <DependentUpon>202206281638082_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206251421151_AddedFirstClasses.resx">
-      <DependentUpon>202206251421151_AddedFirstClasses.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202206281639056_SeedFeed.resx">
+      <DependentUpon>202206281639056_SeedFeed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206251450209_Sadface.resx">
-      <DependentUpon>202206251450209_Sadface.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206251503279_OnModelCreatingIdentityModelChange.resx">
-      <DependentUpon>202206251503279_OnModelCreatingIdentityModelChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206252115460_AddForeignKeysPropertiesToGig.resx">
-      <DependentUpon>202206252115460_AddForeignKeysPropertiesToGig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206252216309_WTHISGOINGON.resx">
-      <DependentUpon>202206252216309_WTHISGOINGON.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206261934077_AddNameToAppUser.resx">
-      <DependentUpon>202206261934077_AddNameToAppUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202206282104545_AddLiking.resx">
+      <DependentUpon>202206282104545_AddLiking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

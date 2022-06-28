@@ -6,14 +6,14 @@ namespace NewBIGprojectASOUME.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Sadface : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class AddLiking : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Sadface));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddLiking));
         
         string IMigrationMetadata.Id
         {
-            get { return "202206251450209_Sadface"; }
+            get { return "202206282104545_AddLiking"; }
         }
         
         string IMigrationMetadata.Source
