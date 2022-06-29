@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    font-size:17px;
+    font-size: 17px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -10,8 +10,8 @@
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
 */
 .dl-horizontal dt {
     white-space: normal;
@@ -36,15 +36,14 @@ h6,
 .h3
 .h4
 .h5
-.h6{
+.h6 {
     font-family: 'Lato',"Helvetica Neue",Arial, Helvetica, sans-serif
- 
 }
 
-.form-control:focus{
+.form-control:focus {
     border-color: #2196f3;
-    box-shadow:none;
-    -webkit-box-shadow:none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
@@ -52,26 +51,24 @@ h6,
     border-color: rgba(205,40,39,0.55);
 }
 
-1.dropdown-menu{
-
-    box-shadow:none;
-    -webkit-box-shadow:none;
+1.dropdown-menu {
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
-.navbar-brand-gighub{
+.navbar-brand-gighub {
     color: #fff;
     font-weight: 700;
 }
 
-span.field-validation-error{
-    color:red;
-    font-weight:bold;
+span.field-validation-error {
+    color: red;
+    font-weight: bold;
 }
 
 /*#bands{
     list-style: none;
 }
-
 
 #bands > table{
     position: relative;
@@ -107,13 +104,38 @@ span.field-validation-error{
         border-bottom: 2px solid #009879;
     }
 
-.table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-}
+    .table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    }
 
+
+.voffset {margin-top: 2px}
+.voffset1 {
+    margin-top: 5px
+}
+.voffset2 {
+    margin-top: 10px
+}
+.voffset3 {
+    margin-top: 20px
+}
+.voffset4 {
+    margin-top: 40px
+}
+.voffset5 {
+    margin-top: 80px
+}
 /*.date
 
 .user
 
 .band*/
+
+/*a.classname {
+    background: url(../Images/image.gif) no-repeat top left;
+    display: block;
+    width: 150px;
+    height: 150px;
+    text-indent: -9999px;*/ /* hides the link text */
+/*}*/

@@ -8,31 +8,30 @@
 
 @using (Html.BeginForm("Create", "Bands"))
 {   <p class="alert alert-info">All fields are <strong> required</strong></p>
-    @Html.AntiForgeryToken()
-    <div class="form-group">
-        Band
-        </div>
-        @*@Html.TextBoxFor(m => m.Band)
+@Html.AntiForgeryToken()
+<div class="form-group">
+    Band
+</div>
+@*@Html.TextBoxFor(m => m.Band)
     </div>*@
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Name)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Genre)
-        @Html.DropDownListFor(m => m.Genre, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Genre)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Artist)
-        @Html.DropDownListFor(m => m.Artist, new SelectList(Model.Artists, "Id", "FullName"), "Select Artist", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Artist)
-
-    </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+<div class="form-group">
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Name)
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Genre)
+    @Html.DropDownListFor(m => m.Genre, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Genre)
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Artist)
+    @Html.DropDownListFor(m => m.Artist, new SelectList(Model.Artists, "Id", "FullName"), "Select Artist", new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Artist)
+</div>
+<button type="submit" class="btn btn-primary">Save</button>
 }
 
 @section scripts{
     @Scripts.Render("~/bundles/jqueryval")
-    }
+}

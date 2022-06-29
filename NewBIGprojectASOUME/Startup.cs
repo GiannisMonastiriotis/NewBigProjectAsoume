@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(NewBIGprojectASOUME.Startup))]
+
 namespace NewBIGprojectASOUME
 {
     public partial class Startup

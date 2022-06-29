@@ -1,8 +1,7 @@
 namespace NewBIGprojectASOUME.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class SeedFeed : DbMigration
     {
         public override void Up()

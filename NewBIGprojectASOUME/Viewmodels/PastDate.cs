@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using System.Linq;
-using System.Web;
 
 namespace NewBIGprojectASOUME.Viewmodels
 {
@@ -20,7 +17,6 @@ namespace NewBIGprojectASOUME.Viewmodels
                 out dateTime);
 
             return (isValid && dateTime > DateTime.Now);
-
         }
     }
 }

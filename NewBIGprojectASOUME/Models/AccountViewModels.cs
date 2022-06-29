@@ -31,6 +31,7 @@ namespace NewBIGprojectASOUME.Models
         [Required]
         [Display(Name = "Code")]
         public string Code { get; set; }
+
         public string ReturnUrl { get; set; }
 
         [Display(Name = "Remember this browser?")]
@@ -113,6 +114,5 @@ namespace NewBIGprojectASOUME.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
     }
 }

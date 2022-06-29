@@ -1,0 +1,114 @@
+﻿@model NewBIGprojectASOUME.Viewmodels.BandViewModel
+@{
+    ViewBag.Title = "Home Page";
+
+}
+
+@*<ol>
+
+        <li> Provide Date Time, i.e: 'exmpl'</li>
+        <li>
+            @Html.TextBox((ViewBag.DateTimeProvided).ToString(), new { @class = "form-control" })
+        </li>
+    </ol>*@
+
+<h1 class="badge alert-success">@Model.Heading</h1>
+<table class="table voffset4" id="bands">
+    <thead>
+        <tr>
+        </tr>
+
+        <tr>
+            <th scope="col" class="glyphicon-record table-responsive alert-info"> Id</th>
+            <th scope="col" class="table-bordered alert-info"> Created At </th>
+            <th scope="col" class="table-bordered alert-info"> Band </th>
+            <th scope="col" class="table-bordered alert-info"> Genre </th>
+            <th scope="col" class="table-bordered alert-info"> U.Name </th>
+            <th scope="col" class="table-bordered alert-info"> GimeUrLovin  </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var band in Model.FeauturedBands)
+        {
+            <tr>
+                @{
+
+                    <th scope="row" class="fan"> @band.Id</th>
+                }
+                <td class="fan">
+                    @band.DateCreated.ToString("dd-MM-yyyy-tt")
+                </td>
+
+                <td class="fan">
+
+                    @band.Genre.Name
+                </td>
+
+                <td class="fan">
+
+                    @band.Name
+                </td>
+
+                <td class="fan">
+                    @band.User.UserName
+                </td>
+                <td class="fan">
+                    @if (Model.ShowActions)
+                    {
+
+                        <button data-band-id="@band.Id" class="btn btn-default btn-sm pull-right js-toggle-ArtistsBandsConnection">Like</button>
+                    }
+                    @if (Model.ShowActions)
+                    {
+                        <button data-user-id="@band.UserID" class="btn btn-default  btn-sm pull-right js-toggle-Love">Love </button>
+                    }
+                </td>
+            </tr>
+
+        }
+        <tr>
+        </tr>
+    </tbody>
+</table>
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $(".js-toggle-ArtistsBandsConnection").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/Likes", { BandId: button.attr("data-band-id") })
+                    .done(function () {
+                        button
+                            .removeClass("btn-default")
+                            .addClass("btn-info")
+                            .text("I Like it!")
+                    })
+                    .fail(function () {
+                        alert("Something Failed")
+
+                    });
+            })
+        });
+    </script>
+
+    <script>
+        $(".js-toggle-Love").click(function (e) {
+            var button = $(e.target);
+            $.post("/api/Likings", { LikeeId: button.attr("data-user-id") })
+                .done(function () {
+                   
+                    button
+                        .removeClass("btn-default")
+                        .addClass("btn-alert").
+                        text("Loving it!");
+                })
+                .fail(function () {
+                    alert("Something failed!");
+                })
+        });
+    </script>
+}

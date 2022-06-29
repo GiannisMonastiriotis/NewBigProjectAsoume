@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace NewBIGprojectASOUME.Models
 {
@@ -11,7 +7,6 @@ namespace NewBIGprojectASOUME.Models
         public int Id { get; set; }
 
         [RegularExpression(@"^[^,:*?""<>\|]*$")]
-
         public string Name { get; set; }
     }
 }

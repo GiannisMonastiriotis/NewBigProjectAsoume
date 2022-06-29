@@ -2,26 +2,27 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace NewBIGprojectASOUME
 {
     public class BandFormViewModel
-    {   
+    {
         [Required]
         public int Genre { get; set; }
-       
+
         public IEnumerable<Genre> Genres { get; set; }
+
         [Required]
         public int Artist { get; set; }
-    
-        public virtual IEnumerable<Artist>  Artists { get; set; }
+
+        public virtual IEnumerable<Artist> Artists { get; set; }
 
         [Required]
         public string Name { get; set; }
+
         [Required]
         public byte Band { get; set; }
+
         public IEnumerable<Band> Bands { get; set; }
         public DateTime DateTimeProvided { get; set; }
 

@@ -1,9 +1,6 @@
 ﻿using NewBIGprojectASOUME.Models;
 using NewBIGprojectASOUME.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using NewBIGprojectASOUME.Viewmodels;
 using System.Web.Mvc;
 
 namespace NewBIGprojectASOUME.Controllers
@@ -13,26 +10,29 @@ namespace NewBIGprojectASOUME.Controllers
         public readonly BandsRepository _bandRepos;
         public readonly BandFormViewModel _viewModel;
         public readonly ApplicationDbContext _Context = new ApplicationDbContext();
+
         public HomeController()
         {
             _bandRepos = new BandsRepository();
             _viewModel = new BandFormViewModel();
         }
+
         public ActionResult Index()
         {
-       
-            var newBandsAdded = _bandRepos.GetLatestResultsByOneDay();
+            // var newBandsAdded = _bandRepos.GetLatestResultsByOneDay();
+            //  var artists = _Context.Artists;
+            var featuredBands = _bandRepos.GetLatestResultsByOneDay();
 
-            //string genre;
+            var viewModel = new BandViewModel()
+            {
+                FeauturedBands = featuredBands,
+                ShowActions = User.Identity.IsAuthenticated,
+                Heading = "Recent Albums"
+            };
 
-            //if (TempData.ContainsKey("genre"))
-            //    genre = TempData["genre"] as string;
-
-            //TempData.Keep("genre");
-    
-            return View(newBandsAdded);
+            return View("Bands",viewModel);
         }
-       
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
